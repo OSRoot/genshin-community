@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GForum</string>
+    <string name="title_activity_main">GForum</string>
+    <string name="package_name">com.osroot.mihoyo</string>
+    <string name="custom_url_scheme">com.osroot.mihoyo</string>
+</resources>
