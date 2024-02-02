@@ -1,0 +1,2 @@
+# genshin-community
+genshin community
