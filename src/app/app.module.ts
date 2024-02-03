@@ -8,11 +8,14 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { Drivers } from '@ionic/storage';
 import * as cordovaSQLiteDriver from 'localforage-cordovasqlitedriver';
 import { HttpClientModule } from '@angular/common/http';
+import { customAnimation } from './core/scripts/animation';
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      navAnimation:customAnimation
+    }),
     AppRoutingModule,
     IonicStorageModule.forRoot({
       name:'osroot-genshin-community',

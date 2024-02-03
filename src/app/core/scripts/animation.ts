@@ -7,7 +7,7 @@ export const customAnimation = (_: HTMLElement, opts: any) =>{
   // create root transition
 const rootTransition = animationCtrl
 .create()
-.duration(opts.duration ||350)
+.duration(opts.duration || 350)
 .easing('cubic-bezier(0.7,0,0.3,1)');
 
 const enterTransition = animationCtrl.create().addElement(opts.enteringEl);
@@ -17,14 +17,13 @@ enterTransition.fromTo('opacity', '0', '1');
 exitTransition.fromTo('opacity', '1', '0');
 
 if (opts.direction === 'forward') {
-  enterTransition.fromTo('transform', 'translateX(40%)', 'translateX(0%)');
-  exitTransition.fromTo('transform', 'translateX(0%)', 'translateX(-40%)');
-} else if (opts.direction === 'back'){
-enterTransition.fromTo('transform', 'translateX(-40%)', 'translateX(0%)');
-exitTransition.fromTo('transform', 'translateX(0%)', 'translateX(40%)');
+  enterTransition.fromTo('transform', 'translateY(40%)', 'translateY(0%)');
+  exitTransition.fromTo('transform', 'translateY(0%)', 'translateY(-40%)');
+} else {
+enterTransition.fromTo('transform', 'translateY(-40%)', 'translateY(0%)');
+exitTransition.fromTo('transform', 'translateY(0%)', 'translateY(40%)');
 }
 
 rootTransition.addAnimation([enterTransition, exitTransition]);
 return rootTransition;
 }
-

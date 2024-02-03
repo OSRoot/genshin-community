@@ -60,13 +60,14 @@ export class HelpersService {
     return data
   }
   ///////////////////////////////////////////////////////////////////////////////////
-  async PresentGenericToaster(options: ToastOptions) {
+  async PresentGenericToaster(options: ToastOptions, err:boolean=true) {
     const toaster = await this.tostCtrl.create({
-      header: options.header || 'إخطار',
+      header: options.header || '',
       message: options.message || 'تم',
       cssClass: options.cssClass || 'OS-CUSTOM-TOASTER',
       duration: options.duration || 3000,
-      icon:'notifications-outline',
+      color:err?'danger':'primary',
+      // icon:'notifications-outline',
       buttons:[
         {icon:'close',role:'cancel'}
       ],

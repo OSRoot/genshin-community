@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="end">
-      <ion-button shape="round" >
+      <ion-button shape="round" (click)="navigate('register', 'forward')">
         RegisteR
       </ion-button>
     </ion-buttons>
@@ -10,4 +10,85 @@
 
 <ion-content >
 
+  <ion-item lines="none"  style="--padding-top:8px; --padding-bottom: 0 !important;">
+      <ion-img slot="start" style="width: 100px; height: 100px; margin: 0;"  src="../../../../assets/images/default.png"></ion-img>
+    <ion-label slot="end">
+      <h2 class="fb-16 no-m banner-text">
+      <span class="fb-16 game-name">Genshin Impact</span>
+      </h2>
+    </ion-label>
+  </ion-item>
+
+
+
+  <ion-label class="ion-text-center">
+    <h3 class="fb-16 text-20 ion-padding-start ion-padding-end">Login now to interact with all topics</h3>
+  </ion-label>
+
+
+
+  <form [formGroup]="form">
+  <ion-list lines="none">
+
+      <ion-label class="fb-16">Email</ion-label>
+      <ion-item class="form-item">
+        <ion-input type="email" formControlName="email" placeholder="Enter your email..."></ion-input>
+      </ion-item>
+      <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="ion-padding-start ion-padding-end fb-14 error-message">
+        <div *ngIf="form.get('email')?.errors?.['required']">Email is required.</div>
+        <div *ngIf="form.get('email')?.errors?.['email']">Invalid email format.</div>
+    </div>
+      <ion-label class="fb-16">Password</ion-label>
+      <ion-item>
+        <ion-input type="password" formControlName="password" placeholder="Enter your password..."></ion-input>
+      </ion-item>
+      <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="ion-padding-start ion-padding-end fb-14 error-message">
+        <div *ngIf="form.get('password')?.errors?.['required']">Password is required.</div>
+        <div *ngIf="form.get('password')?.errors?.['minlength']">Short Password</div>
+    </div>
+
+      <ion-button (click)="submitLogin()" shape="round" expand="block" class="ion-padding" [disabled]="form.invalid">Login</ion-button>
+    </ion-list>
+  </form>
+
+
+  <ion-item lines="none">
+    <ion-label style="margin: 0; font-family: 'bold'" color="tertiary" slot="start" class="fb-16">Forgot Password?</ion-label>
+    <ion-buttons slot="end">
+      <ion-button color="primary" shape="round" fill="outline">Reset Password</ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-list lines="none" class="social-list">
+  <ion-label class="ion-padding-start">Login With</ion-label>
+  <ion-item [button]="true" class="social-item google">
+      <ion-label style="margin: 0; font-family: 'bold' ;" color="tertiary" slot="start" class="fb-16">Google</ion-label>
+      <ion-img  slot="end" src="../../../../assets/icon/free-google-1772223-1507807.webp"></ion-img>
+    </ion-item>
+    <ion-item [button]="true" class="social-item facebook">
+      <ion-label style="margin: 0; font-family: 'bold' ;"  color="tertiary" slot="start" class="fb-16"> Facebook</ion-label>
+      <ion-img  slot="end" src="../../../../assets/icon/free-neon-11-101870.webp"></ion-img>
+    </ion-item>
+    <ion-item [button]="true" class="social-item twitter">
+      <ion-label style="margin: 0; font-family: 'bold';" color="tertiary" slot="start" class="fb-16"> Twiter</ion-label>
+      <ion-img slot="end" src="../../../../assets/icon/free-logo-twitter1889505-1597565.webp"></ion-img>
+    </ion-item>
+
+    <ion-button fill="outline" color="primary" mode="ios" class="ion-padding">
+      <ion-label style="margin: 0; font-family: 'bold' ;"  slot="start">Read Our Terms and Conditions</ion-label>
+    </ion-button>
+  </ion-list>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-buttons>
+            <ion-button (click)="OpenGithub()">
+          <ion-label>
+            Copyright © 2024
+          </ion-label>
+          <ion-icon name="logo-github"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
 </ion-content>

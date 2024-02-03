@@ -53,14 +53,14 @@ export class AuthService {
   login(endPoint:string , form: any): Observable<any> {
   return this.http.post(this.BASEAPI+endPoint, form).pipe(
     switchMap((data: any) => {
-      const { access_token, refresh_token } = data;
+      const { accessToken, refreshToken } = data;
       return from(Promise.all([
-        this.storage.set(REFRESH_TOKEN, refresh_token)
+        this.storage.set(REFRESH_TOKEN, refreshToken)
       ])).pipe(
         tap(() => {
-          localStorage.setItem(ACCESS_TOKEN, access_token);
+          localStorage.setItem(ACCESS_TOKEN, accessToken);
           this.isAuthenticated.next(true);
-          this.router.navigateByUrl('/home',{replaceUrl:true});
+          this.router.navigateByUrl('/tabs',{replaceUrl:true});
           // this.setUser();
         })
       );
@@ -71,7 +71,7 @@ export class AuthService {
         this.helper.PresentGenericToaster({message:`App is not connected to the server ( ${error.statusText} )`})
       }
       else {
-        this.helper.PresentGenericToaster({message:error.error.message})
+        this.helper.PresentGenericToaster({message:error.error.message || 'App is not connected to the server ( Unknown Error )'})
         console.log('Error:', error);
       }
       return throwError(error);

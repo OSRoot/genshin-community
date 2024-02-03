@@ -25,8 +25,176 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 @import 'animate.css';
+@font-face {
+  font-family: "bold";
+  src: url("./assets/fonts/alfont_com_Parastoo-Bold.ttf");
+}
 
+@font-face {
+  font-family: "regular";
+  src: url("./assets/fonts/Mooli-Regular.ttf");
+}
+
+*, html , body{
+  font-family: "regular" ;
+}
 ion-button{
   text-transform: none !important;
   animation: fadeIn 0.3s ease-in-out;
+  --box-shadow:none;
+}
+
+
+
+ion-content{
+  --background: #F4F4F4 !important;
+
+}
+.error-message{
+  color: red !important;
+  opacity: 0.8 !important;
+}
+// Common classes
+a{
+  text-decoration: none;
+}
+.no-mp{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.no-m{
+  margin: 0 !important;
+}
+
+
+.fb-16{
+  font-size: 16px;
+  color: var(--ion-color-secondary);
+  font-family: "bold";
+}
+.fb-20{
+font-size: 20px;
+color: var(--ion-color-secondary);
+font-family: "bold";
+}
+.fb-14{
+  font-size: 14px;
+  color: var(--ion-color-secondary);
+  font-family: "bold";
+}
+
+.fb-12{
+  font-size: 12px;
+  color: var(--ion-color-secondary);
+  font-family: "bold";
+}
+
+.fb-10{
+  font-size: 10px;
+  color: var(--ion-color-secondary);
+  font-family: "bold";
+}
+
+
+.fr-16{
+  font-size: 16px;
+  color: var(--ion-color-secondary);
+  font-family: "regular";
+}
+
+
+.fr-14{
+  font-size: 14px;
+  color: var(--ion-color-secondary);
+  font-family: "regular";
+}
+
+.fr-12{
+  font-size: 12px;
+  color: var(--ion-color-secondary);
+  font-family: "regular";
+}
+
+.fr-10{
+  font-size: 10px;
+  color: var(--ion-color-secondary);
+  font-family: "regular";
+}
+
+.c-white{
+  color: #fff !important;
+}
+
+.p-start{
+  padding-inline-start: 16px !important;
+}
+
+.p-end{
+  padding-inline-end: 16px !important;
+}
+.p-top{
+  padding-top: 16px !important;
+}
+
+.p-bottom{
+  padding-bottom: 16px !important;
+}
+
+.m-start{
+  margin-inline-start: 16px !important;
+}
+
+.m-end{
+  margin-inline-end: 16px !important;
+}
+.m-top{
+  margin-top: 16px !important;
+}
+.m-top-8{
+  margin-top: 8px !important;
+}
+.m-top-10{
+  margin-top: 10px !important;
+}
+.m-bottom{
+  margin-bottom: 16px !important;
+}
+
+.m-bottom-8{
+  margin-bottom: 8px !important;
+}
+.d-flex{
+  display: flex !important;
+}
+.mb-16{
+  margin-bottom: 16px !important;
+}
+.mb-8{
+  margin-bottom: 8px !important;
+}
+.p-8{
+padding: 8px !important;
+}
+.d-flex-sb{
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
+.text-20{
+  font-size: 20px !important;
+  font-family: "bold";
+  font-weight: 600;
+}
+.c-secondary{
+  color: var(--ion-color-secondary) !important;
+}
+.fade-fast{
+  animation-duration: 0.3s;
+}
+// Ionic Button
+.hover{
+  &:active{
+      background: #15487521;
+  }
 }

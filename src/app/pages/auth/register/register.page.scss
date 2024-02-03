@@ -1,0 +1,75 @@
+.game-name{
+  background: var(--white);
+  box-shadow: 0 0 2px 0px gray;
+  border-radius: 5px;
+  padding:0 5px;
+  line-height: 1;
+}
+
+.banner-text{
+
+  line-height: 1.5;
+  text-align: center;
+    }
+
+
+form{
+  ion-list{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    ion-label{
+      margin-inline: 16px;
+    }
+  }
+  .form-item{
+  }
+}
+
+ion-item, ion-list, ion-input{
+  --background: transparent;
+  background: transparent;
+}
+
+ion-input{
+  border: 1px solid #eee;
+  background: #ffffff69;
+  border-radius: 5px;
+  --padding-start:16px !important;
+  --padding-end:16px !important;
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.social-list{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.social-item{
+  margin-inline: 50px;
+  border-radius: 12px;
+  --background: #fff;
+  ion-img{
+    width: 50px;
+    height: 50px;
+    padding: 8px 0;
+  }
+}
+
+.facebook{
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.1);
+  ion-img{
+  //  background: blue;
+  }
+}
+.google{
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.1);
+  ion-img{
+    width: 45px;
+    height: 45px;
+  }
+}
+.twitter{
+  box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.1);
+
+}
