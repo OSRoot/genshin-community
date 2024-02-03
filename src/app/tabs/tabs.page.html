@@ -1,0 +1,55 @@
+<ion-content>
+
+  <ion-tabs style="background: #eee;">
+    <div class="navigation">
+  <ul>
+    <li class="list " [ngClass]="{ 'active': isActive('/tabs/home') }">
+    <a routerLink="/tabs/home">
+
+      <span class="icon">
+        <ion-icon name="home-outline"></ion-icon>
+        </span>
+        <span class="text fb-16">Home</span>
+      </a>
+
+    </li>
+    <li class="list" [ngClass]="{ 'active': isActive('/tabs/profile') }">
+        <a routerLink="/tabs/profile">
+          <span class="icon">
+            <ion-icon name="person-outline"></ion-icon>
+          </span>
+          <span class="text fb-16">Profile</span>
+        </a>
+    </li>
+    <li class="list" [ngClass]="{ 'active': isActive('/tabs/messages') }">
+      <a routerLink="/tabs/messages">
+        <span class="icon">
+          <ion-icon name="mail-open-outline"></ion-icon>
+        </span>
+        <span class="text fb-16">Messages</span>
+      </a>
+    </li>
+    <li class="list" [ngClass]="{ 'active': isActive('/tabs/notifications') }">
+      <a routerLink="/tabs/notifications">
+        <span class="icon">
+          <ion-icon name="notifications-outline"></ion-icon>
+        </span>
+        <span class="text fb-16">Notifications</span>
+      </a>
+    </li>
+    <li class="list" [ngClass]="{ 'active': isActive('/tabs/settings') }">
+      <a routerLink="/tabs/settings">
+
+        <span class="icon">
+          <ion-icon name="settings-outline"></ion-icon>
+        </span>
+        <span class="text fb-16">Settings</span>
+      </a>
+    </li>
+    <div class="indicator"></div>
+  </ul>
+</div>
+
+</ion-tabs>
+
+</ion-content>

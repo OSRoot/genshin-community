@@ -1,7 +1,7 @@
-
-export interface ICategory {
-  name: string
-  _id: string
-  createdAt: string
-  updatedAt: string
+export interface ICategoryObject{
+    _id?:string,
+    status?:number,
+    title?:string,
+    // subCategories:subCategoryObject[],
+    description?:string
 }
