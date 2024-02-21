@@ -45,11 +45,11 @@ export class HelpersService {
 
   async GenericAlertConfirm(options: AlertOptions): Promise<AlertData> {
     const alert = await this.alertCtrl.create({
-      header: options.header || 'تأكيد',
-      message: options.message || 'هل أنت متأكد؟',
+      header: options.header || 'Confirmation',
+      message: options.message || 'Are you sure?',
       buttons: options.buttons || [
-        { text: 'إلغاء', role: 'cancel' },
-        { text: 'نعم', role: 'confirm' },
+        { text: 'No', role: 'cancel' },
+        { text: 'Yes', role: 'confirm' },
       ],
       cssClass: options.cssClass || 'OS-CUSTOM-ALERT',
       mode:options.mode||'ios',
@@ -63,7 +63,7 @@ export class HelpersService {
   async PresentGenericToaster(options: ToastOptions, err:boolean=true) {
     const toaster = await this.tostCtrl.create({
       header: options.header || '',
-      message: options.message || 'تم',
+      message: options.message || 'Done',
       cssClass: options.cssClass || 'OS-CUSTOM-TOASTER',
       duration: options.duration || 3000,
       color:err?'danger':'primary',
@@ -100,10 +100,10 @@ export class HelpersService {
 
   async OpenGenericAtionSheet(options:ActionSheetOptions){
     const action = await this.actionSheet.create({
-      header:options.header||'اختر',
+      header:options.header||'Choose',
       subHeader:options.subHeader||'',
       buttons:options.buttons||[
-        {text:'اغلاق',role:'cancel'},
+        {text:'Close',role:'cancel'},
       ],
       mode:options.mode||'ios',
       cssClass:options.cssClass||'OS-CUSTOM-ACTION-SHEET'

@@ -155,3 +155,10 @@
     transform: rotate(360deg);
   }
 }
+.icon{
+  ion-icon{
+    @media(max-width:370px){
+      margin-bottom: 4px !important;
+    }
+  }
+}

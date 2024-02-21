@@ -5,7 +5,7 @@ import { Post } from "./post.interface";
 import { Reply } from "./reply.interface";
 import { SavedPost } from "./savedPost.interface";
 
-export interface User{
+export interface IUser{
     status:number,
     _id:string,
     username:string,
@@ -29,10 +29,11 @@ export interface User{
 };
 
 export interface ISignUp{
-    username:string,
-    email:string,
-    picture:string
-    password:string
+    username:string;
+    email:string;
+    picture:string;
+    password:string;
+    phone?:string
 }
 export interface ILogin{
     email:string,

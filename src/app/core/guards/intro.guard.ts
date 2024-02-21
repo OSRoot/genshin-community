@@ -10,8 +10,12 @@ export class IntroGuard implements CanLoad {
   constructor(
     private router:Router,
     private storage:Storage
-  ){}
+  ){
+    console.log("🚀 ~ IntroGuard ~ constructor ~ Guard");
+
+  }
   async canLoad(): Promise<boolean> {
+
     const hasSeenIntro = await this.storage.get(INTRO_KEY);
     if(hasSeenIntro==='true'){
       return true

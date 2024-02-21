@@ -1,0 +1,150 @@
+ion-content{
+  .profile-top{
+    position: relative;
+    .image-cover{
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      ion-img , .skelton-cover{
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .user-avatar-and-username{
+      padding:0 16px;
+      display: flex;
+      align-items: center;
+      .user-avatar, .skelton-avatar{
+        width: 140px;
+      position: relative;
+      ion-img{
+        position: absolute;
+        width: 100%;
+        top: -120px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 0 1px gray;
+        }
+      }
+      .username-info{
+        margin: 10px ;
+        margin-right: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        box-shadow: 0 0 1px gray;
+        gap: 4px;
+        padding:  8px 10px;
+        border-radius: 4px;
+        .settings{
+          right: 0;
+          top: 0;
+          ion-icon{
+            color: var(--ion-color-primary);
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+  .personal-section{
+    padding-top: 0;
+    .information{
+      .information-items{
+        position: relative;
+        .settings{
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          ion-icon{
+            color: var(--ion-color-primary);
+          font-size: 20px;
+        }
+        }
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        gap: 8px;
+        background: #fff;
+        box-shadow: 0 0 1px gray;
+        .sub-header-name{
+          font-size: 16px;
+          margin-bottom: 4px;
+        }
+        .sub-info{
+          font-family: "bold";
+          font-size: 17px;
+          color: var(--ion-color-primary);
+        }
+      }
+    }
+  }
+
+  .friends-section {
+    padding-top: 0;
+    .friends-container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      box-shadow: 0 0 1px gray;
+      overflow: auto;
+      gap: 8px;
+      .friend-box{
+        border: 0.5px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 4px;
+        border-radius: 4px;
+        gap: 8px;
+        .image{
+          width: 90px;
+          height: 90px;
+          object-fit: cover;
+        }
+        .label{
+          font-size: 12px;
+          white-space: nowrap;
+        }
+      }
+      .circle{
+        border-radius: 50%;
+        font-size: 14px;
+      }
+    }
+  }
+  .saved-posts-section,.my-posts-section{
+    padding-top: 0;
+    .saved-container, .my-posts-container{
+      height: 240px;
+      background: #fff;
+        border: 0.5px solid rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .saved-post-item, .my-post-item{
+      box-shadow: 0 0 1px gray;
+    }
+    .saved-see-all{
+      // width: 100%;
+      bottom: -10px;
+      width: 90%;
+      box-shadow: 0 0 1px gray;
+      .saved-all-btn-label{
+        font-size: 17px;
+        color: var(--ion-color-primary);
+        font-family: "bold";
+      }
+    }
+    }
+  }
+
+  .my-posts-section{
+    padding-top: 0;
+  }
+}

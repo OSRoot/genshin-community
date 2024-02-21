@@ -18,7 +18,6 @@ const REFRESH_TOKEN = 'refresh_token';
 export class AuthService {
   BASEAPI:string = environment.baseUrl as string;
   isAuthenticated:BehaviorSubject<boolean>=new BehaviorSubject<boolean>(false);
-
   constructor(
     private storage:Storage,
     private helper:HelpersService,
@@ -43,7 +42,7 @@ export class AuthService {
 
   async logOut(): Promise<void> {
     this.isAuthenticated.next(false)
-    await this.helper.StartLoading({});
+    await this.helper.StartLoading({message:'Logging out...'});
     await this.removeCredentials();
     await this.helper.StopLoading();
     this.router.navigateByUrl('/login',{replaceUrl:true})
@@ -53,9 +52,10 @@ export class AuthService {
   login(endPoint:string , form: any): Observable<any> {
   return this.http.post(this.BASEAPI+endPoint, form).pipe(
     switchMap((data: any) => {
-      const { accessToken, refreshToken } = data;
+      const { accessToken, refreshToken, the_user } = data;
       return from(Promise.all([
-        this.storage.set(REFRESH_TOKEN, refreshToken)
+        this.storage.set(REFRESH_TOKEN, refreshToken),
+        this.storage.set(USER, the_user)
       ])).pipe(
         tap(() => {
           localStorage.setItem(ACCESS_TOKEN, accessToken);

@@ -28,23 +28,36 @@
       <ion-item class="form-item">
         <ion-input type="text" formControlName="username" placeholder="Enter your username..."></ion-input>
       </ion-item>
+      <div *ngIf="form.get('username')?.invalid && form.get('username')?.touched" class="ion-padding-start ion-padding-end fb-14 error-message">
+        <div *ngIf="form.get('username')?.errors?.['required']">Username is required.</div>
+        <div *ngIf="form.get('username')?.errors?.['minlength']">Short Username</div>
+    </div>
       <ion-label class="fb-16">Email</ion-label>
       <ion-item class="form-item">
         <ion-input type="email" formControlName="email" placeholder="Enter your email..."></ion-input>
       </ion-item>
-      <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class=" fb-14 error-message">
+      <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="ion-padding-start ion-padding-end fb-14 error-message">
         <div *ngIf="form.get('email')?.errors?.['required']">Email is required.</div>
         <div *ngIf="form.get('email')?.errors?.['email']">Invalid email format.</div>
-    </div>
+      </div>
       <ion-label class="fb-16">Password</ion-label>
       <ion-item>
         <ion-input type="password" formControlName="password" placeholder="Enter your password..."></ion-input>
       </ion-item>
+      <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="ion-padding-start ion-padding-end fb-14 error-message">
+        <div *ngIf="form.get('password')?.errors?.['required']">Password is required.</div>
+        <div *ngIf="form.get('password')?.errors?.['minlength']">Short Password</div>
+    </div>
+
       <ion-label class="fb-16">Confirm Password</ion-label>
       <ion-item>
-        <ion-input type="password" placeholder="Confirm your password..."></ion-input>
+        <ion-input type="password" formControlName="confirmPass" placeholder="Confirm your password..." [value]="ConfirmPassValue"></ion-input>
       </ion-item>
-      <ion-button (click)="submitRegister()" shape="round" expand="block" class="ion-padding" [disabled]="form.invalid">Register</ion-button>
+      <div *ngIf="form.get('confirmPass')?.invalid && form.get('confirmPass')?.touched" class="ion-padding-start ion-padding-end fb-14 error-message">
+        <div *ngIf="form.get('confirmPass')?.errors?.['required']">Password is required.</div>
+        <div *ngIf="form.get('confirmPass')?.errors?.['minlength']">Short Password</div>
+    </div>
+      <ion-button (click)="registerConfirm()" shape="round" expand="block" class="ion-padding" [disabled]="form.invalid || form.value.password !== form.value.confirmPass">Register</ion-button>
     </ion-list>
   </form>
 
@@ -68,7 +81,7 @@
     </ion-item>
     <ion-item [button]="true" class="social-item twitter">
       <ion-label style="margin: 0; font-family: 'bold';" color="tertiary" slot="start" class="fb-16"> Twiter</ion-label>
-      <ion-img slot="end" src="../../../../assets/icon/free-logo-twitter1889505-1597565.webp"></ion-img>
+      <ion-img slot="end" src="../../../../assets/icon/free-logo-1889505-1597565.webp"></ion-img>
     </ion-item>
 
     <ion-button fill="outline" color="primary" mode="ios" class="ion-padding">

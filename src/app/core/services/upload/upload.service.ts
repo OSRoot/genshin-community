@@ -3,16 +3,16 @@ import { Camera, CameraResultType, CameraSource, ImageOptions } from '@capacitor
 import { ActionSheetController, ActionSheetOptions } from '@ionic/angular';
 import { DataService } from '../data/data.service';
 import { HelpersService } from '../helpers/helpers.service';
-import { Image } from '../../interfaces/image.interface';
+import {IImage} from '../../interfaces/image.interface';
 @Injectable({
   providedIn: 'root'
 })
 export class UploadService {
-  image:Image ={};
-  images:Image[]=[];
+  image:IImage ={};
+  images:IImage[]=[];
   imageName:string='';
   imagesNames:string[]=[];
-  set Image(image:Image){
+  set Image(image:IImage){
     this.image = image;
   }
   get ImageName():string{
@@ -27,7 +27,7 @@ export class UploadService {
   set ImagesNames(names:string[]){
      this.imagesNames = names
   }
-  get Image():Image{
+  get Image():IImage{
     return this.image;
   }
   ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,7 +45,7 @@ export class UploadService {
           text:'افتح المعرض',
           icon:'image-outline',
           handler:async()=>{
-          const image:Image = await this.selectImageFromDevice();
+          const image:IImage = await this.selectImageFromDevice();
           await ActSheet.dismiss(image);
           }
         },
@@ -53,7 +53,7 @@ export class UploadService {
           text:'التقط صورة',
           icon:'camera-outline',
           handler:async()=>{
-          const image:Image = await this.takeAphoto();
+          const image:IImage = await this.takeAphoto();
           await ActSheet.dismiss(image);
           }
         }
@@ -108,9 +108,9 @@ export class UploadService {
   }
   ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  private procesImage(photo:Image):Image{
+  private procesImage(photo:IImage):IImage{
 
-    const image:Image = {
+    const image:IImage = {
       name: new Date().getTime()+`.${photo.format}`,
       data:photo.dataUrl
     }
@@ -121,7 +121,7 @@ export class UploadService {
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  private async setImageFormData(image:Image){
+  private async setImageFormData(image:IImage){
     let fData = new FormData();
     const data = await fetch(image.data as string);
     const blob = await data.blob();
@@ -133,7 +133,7 @@ export class UploadService {
 
   ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  private async setImagesFormDatas(images:Image[]){
+  private async setImagesFormDatas(images:IImage[]){
     const formDatas = [];
     for (const image of images){
       const fData = await this.setImageFormData(image);
@@ -149,7 +149,7 @@ export class UploadService {
   }
   ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  async uploadImage(image: Image | undefined) {
+  async uploadImage(image: IImage | undefined) {
     return new Promise<string>(async (resolve, reject) => {
       try {
         if (!image || image == undefined || image.data == undefined) {
@@ -178,7 +178,7 @@ export class UploadService {
 }
 
 
-async uploadMultiple(images: Image[]): Promise<string[]> {
+async uploadMultiple(images: IImage[]): Promise<string[]> {
   const imageNames: string[] = [];
   try {
     for (const image of images) {

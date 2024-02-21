@@ -1,0 +1,24 @@
+
+
+<ion-content >
+<!-- Search input field -->
+<ion-searchbar animated="true" mode="ios" placeholder="Search Posts or Events"></ion-searchbar>
+<!-- End of Search input field -->
+
+
+<!-- Search results -->
+<ion-label class="ion-padding-start">
+  Search Results
+</ion-label>
+
+<div class="emptyView">
+  <ion-label class="ion-padding-start">
+    No results
+  </ion-label>
+</div>
+
+<ion-list lines="none" *ngIf="0">
+  <ion-item></ion-item>
+</ion-list>
+<!-- End of Search results -->
+</ion-content>

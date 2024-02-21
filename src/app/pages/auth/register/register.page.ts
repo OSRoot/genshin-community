@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Browser } from '@capacitor/browser';
 import { StatusBar, StatusBarStyle } from '@capacitor/status-bar';
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { HelpersService } from 'src/app/core/services/helpers/helpers.service';
 
@@ -12,13 +12,14 @@ import { HelpersService } from 'src/app/core/services/helpers/helpers.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-
+  ConfirmPassValue!:string;
   form!:FormGroup
   constructor(
     private helpers:HelpersService,
     private plt:Platform,
     private fb:FormBuilder,
-    private auth:AuthService
+    private auth:AuthService,
+    private alertCtrl:AlertController
 
   ) {
     this.createForm()
@@ -33,7 +34,8 @@ export class RegisterPage implements OnInit {
       username:['' , [Validators.required, Validators.minLength(6)]],
       phone:[''],
       email:['', [Validators.email, Validators.required]],
-      password:['', [Validators.required, Validators.minLength(8)]]
+      password:['', [Validators.required, Validators.minLength(8)]],
+      confirmPass:['', [Validators.required, Validators.minLength(8)]],
     })
   }
   ionViewWillEnter(){
@@ -67,11 +69,15 @@ async submitRegister(){
     this.helpers.PresentGenericToaster({message:'Please Enter Valid Email and Password'})
     return
   }
-
-  this.auth.login('/user/register',this.form.value).subscribe(
+  const body = {
+    username:this.form.value.username,
+    email:this.form.value.email,
+    password:this.form.value.password
+  }
+  this.auth.login('/user/register',body).subscribe(
     res=>{
       this.helpers.StopLoading();
-      // this.helpers.PresentGenericToaster({message:res.message})
+      this.navigate('register-image-stage', 'forward')
     },
     err=>{
       this.helpers.StopLoading();
@@ -79,4 +85,24 @@ async submitRegister(){
     }
   )
 }
+
+////////////////////////////////////////////////////////
+async registerConfirm(){
+  const alert = await this.alertCtrl.create({
+    header:'Confirm',
+    mode:'ios',
+    subHeader:'Kindly review your register details',
+    animated:true,
+    backdropDismiss:true,
+    message:'By Clicking register, The account will be created, Are you Sure?',
+    buttons:[
+      {text:'Register', role:'confirm', handler:()=>{
+        this.submitRegister()
+      }},
+      {text:'back', role:'cancel',}
+    ]
+  });
+  await alert.present();
+}
+
 }

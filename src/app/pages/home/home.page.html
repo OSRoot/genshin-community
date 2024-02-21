@@ -1,11 +1,225 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Home</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="OpenSearchPostsModal()">
+        <ion-icon color="light" slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
+<!-- Refresher -->
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+
+
+  <div class="home-start-item">
+    <ion-label slot="start" class="bold-font">
+      Posts
+    </ion-label>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="OpenFilterPostsPopOver($event)">
+        <ion-label class="regular-font">More</ion-label>
+        <ion-icon name="chevron-down"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+    <ion-select slot="end" class="ion-paddins-end" placeholder="More" interface="popover">
+      <ion-select-option value="all">All Posts</ion-select-option>
+      <ion-select-option value="recent">Recent</ion-select-option>
+    </ion-select>
+  </div>
+  <!-- Start of the post area -->
+  <ion-list class="posts" lines="none">
+    <!-- <ion-item class="post-item">
+      <ion-thumbnail class="user-thumbnail" slot="start">
+        <ion-img src="../../../assets/images/default.png"></ion-img>
+      </ion-thumbnail>
+      <div class="labels">
+        <ion-label slot="start">
+          <h3>Username</h3>
+          <p>10 days ago</p>
+        </ion-label>
+        <ion-label>
+          <ion-text>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At tempora molestias dolore omnis consectetur
+            delectus, pariatur cum explicabo aperiam autem placeat. In non nemo, perferendis quae quaerat aperiam labore
+            aspernatur.
+          </ion-text>
+        </ion-label>
+      </div>
+    </ion-item> -->
+
+    <div class="post-item">
+      <ion-item>
+        <ion-thumbnail class="user-thumbnail" slot="start">
+          <ion-img src="../../../assets/images/default.png"></ion-img>
+        </ion-thumbnail>
+        <ion-label slot="start">
+          <h3 class="bold-font username">Username</h3>
+          <p>10 days ago</p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button  fill="clear" shape="round">
+            <ion-icon name="ellipsis-horizontal" color="primary"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="ion-no-margin">
+          <h3 style="font-family: 'bold';">Title: Lorem ipsum</h3>
+          <ion-text>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At tempora molestias dolore omnis consectetur
+            delectus, pariatur cum explicabo aperiam autem placeat. In non nemo, perferendis quae quaerat aperiam labore
+            aspernatur.
+          </ion-text>
+        </ion-label>
+      </ion-item>
+        <ion-buttons  class="buttons">
+          <ion-button>
+            <ion-icon [name]="1?'heart-outline':'heart'"></ion-icon>
+          </ion-button>
+          <ion-button>
+            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+          </ion-button>
+
+          <ion-button>
+            <ion-icon [name]="1?'share-social-outline':'heart'"></ion-icon>
+          </ion-button>
+          <ion-button>
+            <ion-icon [name]="1?'bookmark-outline':'heart'"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+    </div>
 
 
 
-  <h1>Home</h1>
+
+    <div class="post-item">
+      <ion-item>
+        <ion-thumbnail class="user-thumbnail" slot="start">
+          <ion-img src="../../../assets/images/default.png"></ion-img>
+        </ion-thumbnail>
+        <ion-label slot="start">
+          <h3 class="bold-font username">Username</h3>
+          <p>10 days ago</p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button  fill="clear" shape="round">
+            <ion-icon name="ellipsis-horizontal" color="primary"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="ion-no-margin">
+          <h3 style="font-family: 'bold';">Title: Lorem ipsum</h3>
+          <ion-text>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At tempora molestias dolore omnis consectetur
+            delectus, pariatur cum explicabo aperiam autem placeat. In non nemo, perferendis quae quaerat aperiam labore
+            aspernatur.
+          </ion-text>
+        </ion-label>
+      </ion-item>
+
+
+      <ion-buttons  class="buttons">
+        <ion-button>
+          <ion-icon [name]="1?'heart-outline':'heart'"></ion-icon>
+        </ion-button>
+        <ion-button>
+          <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button>
+          <ion-icon [name]="1?'share-social-outline':'heart'"></ion-icon>
+        </ion-button>
+        <ion-button>
+          <ion-icon [name]="1?'bookmark-outline':'heart'"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+
+
+    <div class="post-item">
+      <ion-item>
+        <ion-thumbnail class="user-thumbnail" slot="start">
+          <ion-img src="../../../assets/images/default.png"></ion-img>
+        </ion-thumbnail>
+        <ion-label slot="start">
+          <h3 class="bold-font username">Username</h3>
+          <p>10 days ago</p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button  fill="clear" shape="round">
+            <ion-icon name="ellipsis-horizontal" color="primary"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="ion-no-margin">
+          <h3 style="font-family: 'bold';">Title: Lorem ipsum</h3>
+          <ion-text>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At tempora molestias dolore omnis consectetur
+            delectus, pariatur cum explicabo aperiam autem placeat. In non nemo, perferendis quae quaerat aperiam labore
+            aspernatur.
+          </ion-text>
+        </ion-label>
+      </ion-item>
+      <swiper-container
+      class="ion-margin-top"
+        [slidesPerView]="1"
+        [spaceBetween]="10"
+        [centeredSlides]="true"
+        [pagination]="{ clickable: true }"
+        [zoom]="true"
+      >
+        <swiper-slide>
+          <div class="swiper-zoom-container">
+            <div class="swiper">
+              <img class="swiper-img" src="../../../assets/images/ayaka-icon.png"/>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <div class="swiper-zoom-container">
+            <div class="swiper">
+            <img class="swiper-img" src="../../../assets/images/ayaka-icon.png"/>
+          </div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+
+      <ion-buttons class="buttons">
+        <ion-button>
+          <ion-icon [name]="1?'heart-outline':'heart'"></ion-icon>
+        </ion-button>
+        <ion-button>
+          <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button>
+          <ion-icon [name]="1?'share-social-outline':'heart'"></ion-icon>
+        </ion-button>
+        <ion-button>
+          <ion-icon [name]="1?'bookmark-outline':'heart'"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </ion-list>
+  <!-- End of the post area -->
 </ion-content>
+<!-- Fab Button -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" class="animate__animated animate__fadeInLeftBig animate__delay-1s">
+  <ion-fab-button (click)="OpenCreateNewPostModal()">
+    <ion-icon name="create"></ion-icon>
+  </ion-fab-button>
+  <!-- <ion-fab-list side="top">
+    <ion-fab-button><ion-icon name="logo-ionic"></ion-icon></ion-fab-button>
+    <ion-fab-button><ion-icon name="logo-angular"></ion-icon></ion-fab-button>
+  </ion-fab-list> -->
+</ion-fab>
+<!-- End of the fab button -->

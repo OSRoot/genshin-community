@@ -1,15 +1,90 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ModalController, ModalOptions, PopoverController, PopoverOptions } from '@ionic/angular';
+import { SearchPostsPage } from '../search-posts/search-posts.page';
+import { PostOptionsPopoverPage } from '../post-options-popover/post-options-popover.page';
+import { CreatePostPage } from '../create-post/create-post.page';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit , OnDestroy {
 
-  constructor() { }
+
+
+
+
+
+//////////////////////////////////////////// Constructor , oninit , ondestroy ////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  constructor(
+    private modalCtrl:ModalController,
+    private popoverCtrl:PopoverController
+  ) { }
 
   ngOnInit() {
+    return true
+  }
+  ngOnDestroy(): void {
+   true
+  }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////// Modal Functions ////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  async OpenSearchPostsModal(){
+    const options:ModalOptions ={
+      component:SearchPostsPage,
+      cssClass:'search-posts-modal',
+    }
+    const modal = await this.modalCtrl.create(options);
+    await modal.present()
   }
 
+  async OpenPostsPopOver(e:Event){
+    const options:PopoverOptions = {
+      component:PostOptionsPopoverPage,
+      event:e,
+      cssClass:'post-popover-options',
+      dismissOnSelect:true
+    }
+    const popover = await this.popoverCtrl.create(options);
+    await popover.present();
+  }
+  async OpenCreateNewPostModal(){
+    const options:ModalOptions ={
+      component:CreatePostPage,
+      cssClass:'create-post-modal',
+    }
+    const modal = await this.modalCtrl.create(options);
+    await modal.present()
+  }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  //////////////////////////////////////////// All Functions ////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+getData(){}
+LikePost(){}
+AddLikePost(){}
+UpdateLikePost(){}
+Savepost(){}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////// Views , refresh , load more data ////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  doRefresh(ev:any){
+    setTimeout(() => {
+      ev.target.complete();
+    }, 2000);
+  }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }

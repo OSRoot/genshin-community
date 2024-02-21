@@ -3,6 +3,7 @@ import {SplashScreen} from '@capacitor/splash-screen';
 import { AuthService } from './core/services/auth/auth.service';
 import { NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+import { DataService } from './core/services/data/data.service';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +12,14 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class AppComponent {
   constructor(
-    // private authService:AuthService,
-    // private navCtrl:NavController,
-    private storage:Storage
+    private authService:AuthService,
+    private navCtrl:NavController,
+    private storage:Storage,
+
   )
    {
     this.initStorage();
-    this.checkUser();
+    // this.checkUser();
     setTimeout(() => {
       SplashScreen.hide();
     }, 2500);
@@ -30,8 +32,8 @@ export class AppComponent {
 
 
   async checkUser():Promise<void | boolean> {
-    // const token = this.authService.accessToken;
-    // if(!token) return this.navCtrl.navigateRoot("/login");
-    // return this.navCtrl.navigateRoot("/tabs")
+    const token = this.authService.accessToken;
+    if(!token) return this.navCtrl.navigateRoot("/login");
+    return this.navCtrl.navigateRoot("/tabs")
   }
 }

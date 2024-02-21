@@ -43,12 +43,42 @@ ion-button{
   animation: fadeIn 0.3s ease-in-out;
   --box-shadow:none;
 }
-
-
-
+.content-container{
+  margin-bottom: 40px !important;
+}
+ion-toolbar{
+  // --background: var(--ion-color-primary) !important;
+  // ion-title{
+  //   color: #fff;
+  // }
+}
+p, h1,h2,h3,h4,h5,h6{
+  margin: 0;
+}
 ion-content{
   --background: #F4F4F4 !important;
 
+}
+.os-padding{
+  padding: 16px;
+}
+.relative{
+  position: relative;
+}
+.absolute{
+  position: absolute;
+}
+.circle{
+  border-radius: 50%;
+}
+.os-margin{
+  margin: 16px ;
+}
+.lift-40px{
+  margin-bottom: 40px !important;
+}
+.lift-50px{
+  margin-bottom: 50px !important;
 }
 .error-message{
   color: red !important;
@@ -62,12 +92,25 @@ a{
   padding: 0 !important;
   margin: 0 !important;
 }
+.border-12{
+  border-radius: 12px;
+}
+.border-4{
+  border-radius: 4px;
+}
+.border-8{
+  border-radius: 8px;
+}
 
 .no-m{
   margin: 0 !important;
 }
-
-
+.margin-buttom-40px{
+  margin-bottom: 40px !important;
+}
+.primary{
+  color: var(--ion-color-primary) !important;
+}
 .fb-16{
   font-size: 16px;
   color: var(--ion-color-secondary);
@@ -192,9 +235,25 @@ padding: 8px !important;
 .fade-fast{
   animation-duration: 0.3s;
 }
+// Skeleton Loader Classes
+.user-avatar-skeleton{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.username-skeleton{
+  width: 100px;
+}
 // Ionic Button
 .hover{
   &:active{
       background: #15487521;
   }
+}
+
+.filter-posts-popover, ion-popover, ion-alert{
+  backdrop-filter: blur(3px);
+  transition: all 0.3s ease-in-out;
+  animation: fadeIn 0.2s ease-in-out;
+  background: rgba(0, 0, 0, 0.01) !important;
 }

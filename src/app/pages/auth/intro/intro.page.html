@@ -1,0 +1,111 @@
+
+
+<ion-header  class="ion-no-border">
+  <ion-toolbar >
+    <ion-buttons slot="end">
+      <ion-button (click)="skipAlert()">
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        skip
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Genshin Forum </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content scrollY="false">
+
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- /////////////////////////[zoom]="true"////////////////////////////////////////////////////////// -->
+  <swiper-container #swiper (afterinit)="swiperReady()" (slidechange)="swiperSlideChanged($event)">
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+    <swiper-slide>
+      <div class="slide-desc">
+        <h1 class="fb-20">
+          Welcome Outlander</h1>
+        <p>Join the forum to continue your journey in the free world in genshin impact</p>
+      </div>
+      <div class="swiper-zoom-container zoom-container">
+        <img class="bg-img" src="../../../../assets/images/cover.jpg" alt="">
+        <ion-icon *ngIf="delayMe" name="arrow-forward" class="arrow"></ion-icon>
+        <img *ngIf="delayMe" src="../../../../assets/icon/pimon.svg" alt="" class="pimon">
+      </div>
+
+      <div class="slide-desc2">
+        <h1 class="fb-20">
+        <img src="../../../../assets/icon/pimon-text.svg" alt="" class="pimon-hint">
+          Hints</h1>
+        <p>Join the forum to continue your journey in the free world in genshin impact</p>
+      </div>
+
+      <div class="next-btn">
+        <ion-button fill="clear" (click)="goNext()">
+          Next
+        </ion-button>
+      </div>
+    </swiper-slide>
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <swiper-slide>
+      <div class="slide-desc">
+        <h1 class="fb-20">Create Your Profile</h1>
+        <p>We recommend that you use the game username to make it more flexable and exciting</p>
+      </div>
+      <div class="swiper-zoom-container zoom-container">
+        <img class="bg-img" src="../../../../assets/images/kazuha/anemo-statue-kazuha.png" alt="">
+        <ion-icon name="arrow-forward" class="arrow"></ion-icon>
+        <ion-icon name="arrow-back" class="arrow-back"></ion-icon>
+        <img src="../../../../assets/icon/pimon.svg" alt="" class="pimon">
+      </div>
+
+      <div class="slide-desc2">
+        <h1 class="fb-20">
+          <img src="../../../../assets/icon/pimon-text.svg" alt="" class="pimon-hint">
+          Hints</h1>
+        <p>It's recommended to user a character picture for you profile and the cover to be a landscape from the game</p>
+      </div>
+
+      <div class="next-btn">
+        <ion-button fill="clear" (click)="goNext()">
+          Next
+        </ion-button>
+      </div>
+    </swiper-slide>
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <swiper-slide>
+      <div class="slide-desc">
+        <h1 class="fb-20">Select your Character</h1>
+
+        <p>Let your profile defines you by choosing the character you like the most</p>
+      </div>
+      <div class="swiper-zoom-container zoom-container">
+        <img class="bg-img" src="../../../../assets/images/kazuha/stare-kazuha.png" alt="">
+        <ion-icon name="arrow-back" class="arrow-back"></ion-icon>
+        <!-- <ion-icon name="arrow-forward" class="arrow"></ion-icon> -->
+        <img src="../../../../assets/icon/pimon.svg" alt="" class="pimon">
+
+      </div>
+
+
+      <div class="slide-desc2">
+        <h1 class="fb-20">
+          <img src="../../../../assets/icon/pimon-text.svg" alt="" class="pimon-hint">
+          Hints</h1>
+        <p>When creating an account you will get the chance to choose either a character or your own picture</p>
+      </div>
+
+      <div class="next-btn">
+        <ion-button fill="clear" (click)="skipAlert()">
+          Start
+        </ion-button>
+      </div>
+    </swiper-slide>
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+  </swiper-container>
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+
+</ion-content>

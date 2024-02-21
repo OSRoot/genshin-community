@@ -1,11 +1,114 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar color="primary">
-    <ion-title>Settings</ion-title>
+    <ion-title>
+      <ion-icon name="settings-outline"></ion-icon>
+      Settings</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+
+<ion-content >
+  <div class="userspace">
+    <div class="username-img">
+      <img src="../../assets/images/default.png" alt="">
+      <div>
+        <h3>{{user?.username}}</h3>
+        <p>{{user?.email}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-container">
+    <ion-list class="p-8">
+      <h2>Account</h2>
+      <ion-item [button]="true">
+        <ion-label>
+          <ion-icon name="person-outline"></ion-icon>
+          Friends Requests</ion-label>
+        <div class="fr-count">
+          <span>3</span>
+        </div>
+      </ion-item>
+
+      <ion-item [button]="true">
+        <ion-label>
+          <ion-icon name="mail-outline"></ion-icon>
+          Messages</ion-label>
+        <div class="fr-count">
+          <span>3</span>
+        </div>
+      </ion-item>
+
+        <ion-item lines="none" [button]="true">
+          <ion-label>
+          <ion-icon name="notifications-outline"></ion-icon>
+          Notifications</ion-label>
+        <div class="fr-count">
+          <span>3</span>
+        </div>
+      </ion-item>
+
+
+    </ion-list>
+
+
+  </div>
 
 
 
-  <h1>Settings</h1>
+
+  <div class="profile-container">
+    <ion-list class="p-8">
+      <h2>Settings</h2>
+      <ion-item [button]="true">
+        <ion-label>
+          <ion-icon name="person-circle-outline"></ion-icon>
+          Edit profile</ion-label>
+        <div *ngIf="0" class="fr-count">
+          <span>3</span>
+        </div>
+      </ion-item>
+
+      <ion-item [button]="true">
+        <ion-label>
+          <ion-icon name="key-outline"></ion-icon>
+          Change Password</ion-label>
+        <div *ngIf="0" class="fr-count">
+          <span>3</span>
+        </div>
+      </ion-item >
+        <ion-item lines="none"  [button]="true">
+          <ion-label>
+            <ion-icon name="build-outline"></ion-icon>
+          Account settings</ion-label>
+        <div *ngIf="0" class="fr-count">
+          <span>3</span>
+        </div>
+      </ion-item>
+
+
+    </ion-list>
+
+
+  </div>
+
+
+  <div class="profile-container lift-40px" >
+    <ion-list class="p-8">
+      <h2>Privacy</h2>
+      <ion-item lines="none"  [button]="true">
+        <ion-label>
+          <ion-icon name="person-circle-outline"></ion-icon>
+          Read User Privacy</ion-label>
+        <div *ngIf="0" class="fr-count">
+          <span>3</span>
+        </div>
+      </ion-item>
+
+      <ion-button (click)="logout()">Logout</ion-button>
+
+    </ion-list>
+
+
+  </div>
+
 </ion-content>

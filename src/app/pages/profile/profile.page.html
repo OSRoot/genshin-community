@@ -3,9 +3,124 @@
     <ion-title>Profile</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="content-container">
+  <div class="profile-top">
+    <div class="image-cover" >
+      <ion-img class="animate__animated animate__fadeInDown animate__faster" src="../../../assets/images/cover.jpg" *ngIf="showAll"></ion-img>
+      <ion-skeleton-text [animated]="true" *ngIf="!showAll" class="image-cover-skeleton"></ion-skeleton-text>
+    </div>
+    <div class="user-avatar-and-username">
+      <div class="user-avatar animate__animated animate__fadeInDown animate__faster" *ngIf="showAll">
+        <ion-img  src="../../../assets/images/default.png" ></ion-img>
+      </div>
+
+      <div class="user-avatar" *ngIf="!showAll" >
+        <ion-skeleton-text [animated]="true"class="user-avatar-skeleton"></ion-skeleton-text>
+      </div>
+      <div class="username-info relative">
+        <h3 class="animate__animated animate__fadeIn animate__faster username fb-16" *ngIf="showAll">Osroot</h3>
+        <ion-skeleton-text [animated]="true" *ngIf="!showAll" class="username-skeleton"></ion-skeleton-text>
+        <p class="title primary animate__animated animate__fadeIn animate__faster" *ngIf="showAll">{{'@outlander'}}</p>
+        <ion-skeleton-text [animated]="true" *ngIf="!showAll" class="username-skeleton"></ion-skeleton-text>
+        <p class="friends-count animate__animated animate__fadeIn animate__faster" *ngIf="showAll">Friends: 0</p>
+        <ion-skeleton-text [animated]="true" *ngIf="!showAll" class="username-skeleton"></ion-skeleton-text>
+        <ion-buttons class="settings absolute animate__animated animate__fadeInRight animate__faster" slot="end" *ngIf="showAll">
+          <ion-button class="animate__animated  animate__faster" mode="md">
+            <ion-icon slot="icon-only" name="settings-outline" mode="md"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </div>
+  </div>
+  <div class="personal-section os-padding">
+    <ion-label class="fb-16">Personal Information</ion-label>
+    <div class="information">
+      <div class="information-items os-padding" lines="none">
+        <ion-label  *ngIf="showAll">
+          <p class="sub-header-name">email </p> <h3 class="sub-info">{{'osos@osos.osos'}}</h3>
+        </ion-label>
+        <ion-label *ngIf="!showAll">
+        <ion-skeleton-text [animated]="true" class="long-skeleton"></ion-skeleton-text>
+        </ion-label>
+        <ion-label>
+          <p class="sub-header-name">
+            phone
+          </p>
+          <h3 class="sub-info">
+            01288304748
+          </h3>
+        </ion-label>
+        <ion-label>
+          <p class="sub-header-name">
+            favourite character
+          </p>
+          <h3 class="sub-info">
+            Noelle
+          </h3>
+        </ion-label>
+        <ion-buttons class="settings animate__animated animate__fadeInRight animate__faster" slot="end" *ngIf="showAll">
+          <ion-button class="animate__animated" mode="md">
+            <ion-icon slot="icon-only" name="settings-outline" mode="md"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </div>
+  </div>
 
 
+  <div class="friends-section os-padding">
+    <ion-label class="fb-16">Friends</ion-label>
+    <div class="friends-container os-padding">
+      <div class="friend-box border-4" *ngFor="let item of [1,2,3]">
+        <img class="image" src="../../../assets/images/default.png"/>
+        <h3 class="label primary">{{'@title'}}</h3>
+      </div>
 
-  <h1>Profile</h1>
+      <div>
+        <ion-buttons class="" slot="end">
+          <ion-button class="animate__animated" shape="round" fill="clear" color="primary">
+            All
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </div>
+  </div>
+
+  <div class="saved-posts-section os-padding">
+    <ion-label class="fb-16">Saved Posts</ion-label>
+    <div class="saved-container os-padding relative border-8">
+      <ion-item class="saved-post-item border-8" [button]="true" lines="none" *ngFor="let item of [1,2]">
+          <ion-thumbnail slot="start">
+            <ion-img class="circle" src="../../../assets/images/default.png"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            <h3 class="primary">Post title is here</h3>
+            <p class="primary">{{'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex mollitia asperiores autem atque necessitatibus ratione?' | truncate:50}}</p>
+          </ion-label>
+      </ion-item>
+      <ion-item class="ion-content-center ion-justfiy-content-center absolute saved-see-all border-12" [button]="true" lines="none">
+        <ion-label class="ion-text-center saved-all-btn-label">See all saved posts</ion-label>
+      </ion-item>
+    </div>
+  </div>
+
+  <div class="my-posts-section os-padding">
+    <ion-label class="fb-16">My Posts</ion-label>
+    <div class="my-posts-container os-padding relative border-8">
+      <ion-item class="my-post-item border-8" [button]="true" lines="none" *ngFor="let item of [1,2]">
+        <ion-thumbnail slot="start">
+          <ion-img class="circle" src="../../../assets/images/default.png"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <h3 class="fb-16">Post title is here</h3>
+          <p class="primary">{{'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex mollitia asperiores autem atque necessitatibus ratione?' | truncate:50}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item class="ion-content-center ion-justfiy-content-center absolute saved-see-all border-12" [button]="true" lines="none">
+        <ion-label class="ion-text-center saved-all-btn-label">View My Posts</ion-label>
+      </ion-item>
+    </div>
+  </div>
+
+  <div class="margin-buttom-40px"></div>
 </ion-content>

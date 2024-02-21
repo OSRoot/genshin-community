@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StatusBar, StatusBarStyle } from '@capacitor/status-bar';
-import { User } from '../core/interfaces/user.interface';
+import { IUser } from '../core/interfaces/user.interface';
 import { AuthService } from '../core/services/auth/auth.service';
 import { DataService } from '../core/services/data/data.service';
 import { HelpersService } from '../core/services/helpers/helpers.service';
@@ -14,7 +14,7 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage implements OnInit {
-  user!:User
+  user!:IUser
   isLoggedIn!: boolean;
   isAutenticated: any;
   constructor(
@@ -36,14 +36,15 @@ export class TabsPage implements OnInit {
       this.setStatuBar()
     }
   }
-  ///////////// Method to help Activate the Tab ////////////
-  isActive(route:string):boolean{
-  return this.router.isActive(route, false)
-  }
-
   setStatuBar():void{
     StatusBar.setStyle({ style: StatusBarStyle.Dark });
     StatusBar.setOverlaysWebView({ overlay: false });
     StatusBar.setBackgroundColor({ color: '#154875' })
   }
+  ///////////// Method to help Activate the Tab ////////////
+  isActive(route:string):boolean{
+  return this.router.isActive(route, false)
+  }
+
+
 }

@@ -1,0 +1,70 @@
+.home-start-item{
+  margin: 8px;
+  padding:0 16px;
+  box-shadow: 0 0 1px 0 gray;
+  border-radius: 4px;
+  // --ripple-effect:none !important;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  justify-content: space-between;
+  ion-select{
+    padding: 0 4px;
+    // width: 50%;
+
+  }
+}
+
+.bold-font{
+  font-family: 'bold' !important;
+}
+.regular-font{
+  font-family: 'regular' !important;
+}
+
+ion-list, .posts{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 8px;
+  background: transparent;
+  animation: fadeIn 0.3s ease-in-out;
+}
+.posts{
+  margin-bottom: 100px;
+}
+
+.post-item{
+  width: 100%;
+  padding: 8px 0;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  .swiper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .swiper-img{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .buttons{
+    padding-inline: 16px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:8px ;
+    ion-button{
+      flex: 1;
+      padding: 4px 0;
+    }
+  }
+}
+
+ion-thumbnail{
+  margin: 0;
+}
+.username{
+  margin-bottom: -4px;
+}
